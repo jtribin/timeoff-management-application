@@ -1,0 +1,23 @@
+[
+  {
+    "name": "timeoff-app",
+    "image": "416920894498.dkr.ecr.us-west-2.amazonaws.com/timeoff-management-application:latest",
+    "cpu": "256",
+    "memory": "512",
+    "networkMode": "awsvpc",
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/timeoff-app",
+          "awslogs-region": "us-west-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+    },
+    "portMappings": [
+      {
+        "containerPort": 3000,
+        "hostPort": 80
+      }
+    ]
+  }
+]
