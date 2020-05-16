@@ -14,7 +14,7 @@
         "name": "timeoff-app",
         "portMappings": [ 
            { 
-              "containerPort": 3000,
+              "containerPort": 80,
               "protocol": "tcp"
            }
         ]
