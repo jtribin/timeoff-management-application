@@ -59,7 +59,7 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: timeoff-management-application
+        ECR_REPOSITORY: timeoff-management
         IMAGE_TAG: ${{ github.sha }}
       run: |
         # Build a docker container and
