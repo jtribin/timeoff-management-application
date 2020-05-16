@@ -1,29 +1,32 @@
 {
-  "family": "timeoff-app",
-  "containerDefinitions": [
-    {
-      "name": "app",
-      "image": "416920894498.dkr.ecr.us-west-2.amazonaws.com/timeoff_management:latest",
-      "memory": 512,
-      "memoryReservation": 256,
-      "cpu": 256,
-      "portMappings": [
-        {
-          "containerPort": 3000,
-          "hostPort": 80,
-          "protocol": "tcp"
-        }
-      ]
-    }
+  "containerDefinitions": [ 
+     { 
+        "essential": true,
+        "image": "416920894498.dkr.ecr.us-west-2.amazonaws.com/timeoff_management:latest",
+        "logConfiguration": { 
+           "logDriver": "awslogs",
+           "options": { 
+              "awslogs-group" : "/ecs/timeoff-app",
+              "awslogs-region": "us-west-2",
+              "awslogs-stream-prefix": "ecs"
+           }
+        },
+        "name": "timeoff-app",
+        "portMappings": [ 
+           { 
+              "containerPort": 3000,
+              "hostPort": 80,
+              "protocol": "tcp"
+           }
+        ]
+     }
   ],
+  "cpu": "256",
   "executionRoleArn": "arn:aws:iam::416920894498:role/timeoffEcsTaskExecutionRole",
+  "family": "timeoff-app-task",
+  "memory": "512",
   "networkMode": "awsvpc",
-  "logConfiguration": {
-    "logDriver": "awslogs",
-    "options": {
-      "awslogs-group": "/ecs/timeoff-app",
-      "awslogs-region": "us-west-2",
-      "awslogs-stream-prefix": "ecs"
-    }
-  }
+  "requiresCompatibilities": [ 
+      "FARGATE" 
+   ]
 }
