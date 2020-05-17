@@ -15,7 +15,6 @@
         "portMappings": [ 
            { 
               "containerPort": 3000,
-              "hostPort": 80,
               "protocol": "tcp"
            }
         ]
@@ -25,7 +24,7 @@
   "executionRoleArn": "arn:aws:iam::416920894498:role/timeoffEcsTaskExecutionRole",
   "family": "timeoff-app-task",
   "memory": "512",
-  "networkMode": "bridge",
+  "networkMode": "awsvpc",
   "requiresCompatibilities": [ 
       "FARGATE" 
    ]
