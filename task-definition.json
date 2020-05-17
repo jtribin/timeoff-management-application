@@ -14,7 +14,8 @@
         "name": "timeoff-app",
         "portMappings": [ 
            { 
-              "containerPort": 80,
+              "containerPort": 3000,
+              "hostPort": 80
               "protocol": "tcp"
            }
         ]
@@ -24,7 +25,7 @@
   "executionRoleArn": "arn:aws:iam::416920894498:role/timeoffEcsTaskExecutionRole",
   "family": "timeoff-app-task",
   "memory": "512",
-  "networkMode": "awsvpc",
+  "networkMode": "bridge",
   "requiresCompatibilities": [ 
       "FARGATE" 
    ]
